@@ -1,0 +1,4 @@
+---
+# tasks file for install-app
+
+- include: install-supervisor-app.yml 
