@@ -1,0 +1,14 @@
+#!/bin/bash
+
+responseOK='"UP"'
+response=$(curl -sb -H "Accept: application/json" "http://localhost:8080/manage/health")
+isUp=$(echo $response | cut -d"," -f1 | cut -d":" -f2)
+echo "La respuesta del webserver es $isUp"
+until [[ $isUp == $responseOK ]]; do
+        sleep 5;
+        echo "Esperando respuesta del webserver $1"
+        response=$(curl -sb -H "Accept: application/json" "http://localhost:8080/manage/health")
+        isUp=$(echo $response | cut -d"," -f1 | cut -d":" -f2)
+        echo "La respuesta del webserver es $isUp"
+done
+

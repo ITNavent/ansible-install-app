@@ -22,6 +22,13 @@
     mode: 0777
     owner: ubuntu
 
+- name: Copio el script de check web up
+  template:
+     src: checkWebServerUp.sh.j2
+     dest: /home/ubuntu/navent/bin/checkWebServerUp.sh
+     mode: 0777
+     owner: ubuntu
+
 - name: Instalo el script shutdown.sh 
   template:
     src: shutdown.sh.j2
