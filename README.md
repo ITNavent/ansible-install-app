@@ -11,6 +11,7 @@ Para instalar una aplicación que corre vía java -jar hay que definir las sigui
 - app_arg: Parámetros de la APP.
 - jmx_arg: Parámetros para la JVM trabajar con JMX.
 
+- app_user: En caso que se quiera definir el usuario con la cual corre la aplicación (root es default)
 
 Parámetros de nexus:
 
