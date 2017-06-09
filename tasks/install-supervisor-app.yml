@@ -7,7 +7,7 @@
     owner: ubuntu
 
 - name: Ejecuto el script de install.sh
-  shell: "sh /home/ubuntu/navent/bin/install.sh"
+  shell: "sh /home/ubuntu/navent/bin/install.sh {{maven_version}}"
 
 - name: Instalo la aplicación en supervisor
   become: yes
