@@ -1,2 +1,2 @@
 ---
-- include: install-supervisor-app.yml 
+- include: "install-{{ type_app_install }}-app.yml"
