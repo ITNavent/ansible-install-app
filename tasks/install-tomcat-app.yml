@@ -1,12 +1,17 @@
 ---
-- name: Instalo el script de install.sh
+- name: Copio el context File
   template:
     src: tomcat/ROOT.xml.j2
-    dest: "{{ tomcat_home }}/ROOT"
+    dest: "{{ tomcat_home }}/ROOT.xml"
     owner: tomcat
 
+- - name: Clean artifact path
+    file:
+      state: absent
+      path: "{{ tomcat_home }}/webapps/ROOT"
+
 - name: Instalo el script de install.sh
-  template:.xml
+  template:
     src: install-nexus.sh.j2
     dest: "/home/ubuntu/navent/bin/install.sh"
     mode: 0777
@@ -41,5 +46,5 @@
   shell: "sh /home/ubuntu/navent/bin/shutdown.sh"
 
 - name: Levanto el tomcat
-  become_user: tomcat
+  become: yes
   shell: "sh /home/ubuntu/navent/bin/startup.sh"

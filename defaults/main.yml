@@ -12,6 +12,6 @@ jmx_arg: ""
 app_command: "java {{jvm_arg}} {{jmx_arg}} {{newrelic_agent}} -jar /home/ubuntu/navent/app/{{app_name}}.jar {{app_arg}}"
 app_user: root
 
-nexus_command: "http://nexus.navent.biz:8081/nexus/service/local/artifact/maven/content?g={{maven_group}}&a={{app_name}}&v=$1&r={{maven_repository}}"
+nexus_command: "http://nexus.navent.biz:8081/nexus/service/local/artifact/maven/content?g={{maven_group}}&a={{app_name}}&v=$1&r={{maven_repository}}&p={{archive_extension}}"
 
 tomcat_home: "/opt/tomcat/conf/Catalina/localhost"
