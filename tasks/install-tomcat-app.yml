@@ -42,7 +42,7 @@
     owner: ubuntu
 
 - name: Paro el tomcat
-  become_user: ubuntu
+  become: yes
   shell: "sh /home/ubuntu/navent/bin/shutdown.sh"
 
 - name: Levanto el tomcat
