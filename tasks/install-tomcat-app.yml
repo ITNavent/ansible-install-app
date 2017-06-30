@@ -2,13 +2,13 @@
 - name: Copio el context File
   template:
     src: tomcat/ROOT.xml.j2
-    dest: "{{ tomcat_home }}/ROOT.xml"
+    dest: "{{ tomcat_root_home }}/ROOT.xml"
     owner: ubuntu
 
 - - name: Clean artifact path
     file:
       state: absent
-      path: "{{ tomcat_home }}/webapps/ROOT"
+      path: "{{ tomcat_root_home }}/ROOT"
 
 - name: Instalo el script de install.sh
   template:

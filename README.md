@@ -24,7 +24,7 @@ Parámetros de nexus:
 
 Parámetros de tomcat:
 
-- tomcat_home: Directorio donde escribe el archivo de contexto. Deafult: /opt/tomcat/conf/Catalina/localhost
+- tomcat_root_home: Directorio donde escribe el archivo de contexto. Deafult: /opt/tomcat/conf/Catalina/localhost
 
 El rol lo que hace es:
 
