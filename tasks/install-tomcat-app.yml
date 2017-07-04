@@ -3,7 +3,7 @@
   template:
     src: tomcat/ROOT.xml.j2
     dest: "{{ tomcat_root_home }}/ROOT.xml"
-    owner: ubuntu
+    owner: {{ tomcat_user }}
 
 - - name: Clean artifact path
     file:
@@ -15,7 +15,7 @@
     src: install-nexus.sh.j2
     dest: "/home/ubuntu/navent/bin/install.sh"
     mode: 0777
-    owner: ubuntu
+    owner: {{ tomcat_user }}
 
 - name: Ejecuto el script de install.sh
   shell: "sh /home/ubuntu/navent/bin/install.sh {{maven_version}}"
@@ -25,21 +25,21 @@
     src: startup-tomcat.sh.j2
     dest: "/home/ubuntu/navent/bin/startup.sh"
     mode: 0777
-    owner: ubuntu
+    owner: {{ tomcat_user }}
 
 - name: Copio el script de check web up
   template:
      src: checkWebServerUp.sh.j2
      dest: /home/ubuntu/navent/bin/checkWebServerUp.sh
      mode: 0777
-     owner: ubuntu
+     owner: {{ tomcat_user }}
 
 - name: Instalo el script shutdown.sh 
   template:
     src: shutdown-tomcat.sh.j2
     dest: "/home/ubuntu/navent/bin/shutdown.sh"
     mode: 0777
-    owner: ubuntu
+    owner: {{ tomcat_user }}
 
 - name: Paro el tomcat
   become: yes
