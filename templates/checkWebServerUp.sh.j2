@@ -1,14 +1,18 @@
 #!/bin/bash
 
+function getJsonVal () { 
+    python -c "import json,sys;sys.stdout.write(json.dumps(json.load(sys.stdin)$1))"; 
+}
+
 responseOK='"UP"'
 response=$(curl -sb -H "Accept: application/json" "{{app_health_check}}")
-isUp=$(echo $response | cut -d"," -f1 | cut -d":" -f2)
+isUp=$(echo $response | getJsonVal "['status']")
 echo "La respuesta del webserver es $isUp"
 until [[ $isUp == $responseOK ]]; do
         sleep 5;
         echo "Esperando respuesta del webserver $1"
         response=$(curl -sb -H "Accept: application/json" "{{app_health_check}}")
-        isUp=$(echo $response | cut -d"," -f1 | cut -d":" -f2)
+        isUp=$(echo $response | getJsonVal "['status']")
         echo "La respuesta del webserver es $isUp"
 done
 
