@@ -15,4 +15,5 @@ app_health_check: http://localhost:8080/manage/health
 
 nexus_command: "http://nexus.navent.biz:8081/nexus/service/local/artifact/maven/content?g={{maven_group}}&a={{app_name}}&v=$1&r={{maven_repository}}&p={{archive_extension}}"
 
-tomcat_root_home: "/opt/tomcat/conf/Catalina/localhost"
+tomcat_root_conf: "/opt/tomcat/conf/Catalina/localhost"
+tomcat_root_home: "/opt/tomcat/webapps"

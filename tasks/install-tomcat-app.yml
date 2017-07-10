@@ -1,21 +1,22 @@
 ---
 - name: Copio el context File
+  become: yes
   template:
     src: tomcat/ROOT.xml.j2
-    dest: "{{ tomcat_root_home }}/ROOT.xml"
-    owner: {{ tomcat_user }}
+    dest: "{{ tomcat_root_conf }}/ROOT.xml"
 
-- - name: Clean artifact path
-    file:
-      state: absent
-      path: "{{ tomcat_root_home }}/ROOT"
+- name: Clean artifact path
+  become: yes
+  file:
+    state: absent
+    path: "{{ tomcat_root_home }}/ROOT"
 
 - name: Instalo el script de install.sh
   template:
     src: install-nexus.sh.j2
     dest: "/home/ubuntu/navent/bin/install.sh"
     mode: 0777
-    owner: {{ tomcat_user }}
+    owner: "ubuntu"
 
 - name: Ejecuto el script de install.sh
   shell: "sh /home/ubuntu/navent/bin/install.sh {{maven_version}}"
@@ -25,21 +26,21 @@
     src: startup-tomcat.sh.j2
     dest: "/home/ubuntu/navent/bin/startup.sh"
     mode: 0777
-    owner: {{ tomcat_user }}
+    owner: "ubuntu"
 
 - name: Copio el script de check web up
   template:
      src: checkWebServerUp.sh.j2
      dest: /home/ubuntu/navent/bin/checkWebServerUp.sh
      mode: 0777
-     owner: {{ tomcat_user }}
+     owner: "ubuntu"
 
 - name: Instalo el script shutdown.sh 
   template:
     src: shutdown-tomcat.sh.j2
     dest: "/home/ubuntu/navent/bin/shutdown.sh"
     mode: 0777
-    owner: {{ tomcat_user }}
+    owner: "ubuntu"
 
 - name: Paro el tomcat
   become: yes
