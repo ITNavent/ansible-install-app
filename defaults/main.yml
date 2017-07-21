@@ -1,7 +1,9 @@
 ---
 # defaults file for install-app
-
+type_app_install: supervisor
 newrelic_agent: ""
+
+archive_extension: jar
 
 jvm_arg: ""
 app_arg: ""
@@ -11,4 +13,7 @@ app_command: "java {{jvm_arg}} {{jmx_arg}} {{newrelic_agent}} -jar /home/ubuntu/
 app_user: root
 app_health_check: http://localhost:8080/manage/health
 
-nexus_command: "http://nexus.navent.biz:8081/nexus/service/local/artifact/maven/content?g={{maven_group}}&a={{app_name}}&v=$1&r={{maven_repository}}"
+nexus_command: "http://nexus.navent.biz:8081/nexus/service/local/artifact/maven/content?g={{maven_group}}&a={{app_name}}&v=$1&r={{maven_repository}}&p={{archive_extension}}"
+
+tomcat_root_conf: "/opt/tomcat/conf/Catalina/localhost"
+tomcat_root_home: "/opt/tomcat/webapps"
