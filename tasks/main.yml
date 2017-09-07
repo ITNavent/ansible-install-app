@@ -1,2 +1,7 @@
 ---
+- name: Si hay usuario especial para ejecutar entonces, creo usuario
+  command: adduser --disabled-password --gecos "" {{ app_user }}
+  ignore_errors: true
+  when: app_user != "root"
+
 - include: "install-{{ type_app_install }}-app.yml"
