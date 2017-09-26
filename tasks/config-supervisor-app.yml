@@ -1,0 +1,5 @@
+- name: Configuro la aplicación en supervisor
+  become: yes
+  template:
+    src: "roles/install-app/templates/app-supervisor.conf.j2"
+    dest: "/etc/supervisor/conf.d/{{app_name}}.conf"
