@@ -7,9 +7,7 @@
 
 - name: Clean artifact path
   become: yes
-  file:
-    state: absent
-    path: "{{ tomcat_root_home }}/ROOT"
+  command: "rm -rf {{ tomcat_root_home }}/ROOT"
 
 - name: Instalo el script de install.sh
   template:
