@@ -17,3 +17,5 @@ nexus_command: "http://nexus.navent.biz:8081/nexus/service/local/artifact/maven/
 
 tomcat_root_conf: "/opt/tomcat/conf/Catalina/localhost"
 tomcat_root_home: "/opt/tomcat/webapps"
+
+zabbix_window: no

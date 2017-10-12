@@ -1,2 +1,30 @@
 ---
+
+- name: Create zabbix maintenance window
+  local_action:
+    module: zabbix_maintenance
+    host_names: "{{ zabbix_hostnames }}"
+    login_user: "{{ zabbix_login_user }}"
+    login_password: "{{ zabbix_login_password }}"
+    name: "{{ zabbix_window_name }}"
+    server_url: "{{ zabbix_server_url }}"
+    state: present
+  when: zabbix_window
+
 - include: "install-{{ type_app_install }}-app.yml"
+
+- name: Wait for application port
+  wait_for:
+    port: "{{ app_port }}"
+  when: zabbix_window
+
+- name: Delete zabbix maintenance window
+  local_action:
+    module: zabbix_maintenance
+    host_names: "{{ zabbix_hostnames }}"
+    login_user: "{{ zabbix_login_user }}"
+    login_password: "{{ zabbix_login_password }}"
+    name: "{{ zabbix_window_name }}"
+    server_url: "{{ zabbix_server_url }}"
+    state: absent
+  when: zabbix_window
