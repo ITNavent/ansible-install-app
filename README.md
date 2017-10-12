@@ -26,6 +26,15 @@ Parámetros de tomcat:
 
 - tomcat_root_home: Directorio donde escribe el archivo de contexto. Deafult: /opt/tomcat/conf/Catalina/localhost
 
+Parámetros de zabbix:
+- zabbix_window: Crear una maintenance-window en zabbix para deshabilitar los triggers de health-check (default "no")
+- zabbix_hostnames: Hostnames de zabbix a los cuales aplicarles la maintenance window
+- zabbix_login_user: Usuario de zabbix
+- zabbix_login_password: Password de zabbix
+- zabbix_window_name: Nombre de la maintenance-window (Debe ser único por aplicación)
+- zabbix_server_url: Url del server de zabbix
+- app_port: Puerto al cual esperar para validar que la aplicación esté levantada
+
 El rol lo que hace es:
 
 - Instalar el servicio en supervisor
