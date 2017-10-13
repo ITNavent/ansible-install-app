@@ -18,10 +18,8 @@
     port: "{{ app_port }}"
   when: zabbix_window
 
-- name: Sleep for 30 seconds waiting for health endpoint
-  wait_for:
-    timeout: 30
-  delegate_to: localhost
+- name: Wait for health endpoint
+  shell: "bash /home/ubuntu/navent/bin/checkWebServerUp.sh"
   when: zabbix_window
 
 - name: Delete zabbix maintenance window
