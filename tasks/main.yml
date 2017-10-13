@@ -18,6 +18,10 @@
     port: "{{ app_port }}"
   when: zabbix_window
 
+- name: Wait for health endpoint
+  shell: "bash /home/ubuntu/navent/bin/checkWebServerUp.sh"
+  when: zabbix_window
+
 - name: Delete zabbix maintenance window
   local_action:
     module: zabbix_maintenance
