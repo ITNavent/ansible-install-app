@@ -18,6 +18,12 @@
     port: "{{ app_port }}"
   when: zabbix_window
 
+- name: Sleep for 30 seconds waiting for health endpoint
+  wait_for:
+    timeout: 30
+  delegate_to: localhost
+  when: zabbix_window
+
 - name: Delete zabbix maintenance window
   local_action:
     module: zabbix_maintenance
