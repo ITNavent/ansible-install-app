@@ -13,6 +13,10 @@
 
 - include: "install-{{ type_app_install }}-app.yml"
 
+- name: Wait application restart
+  pause:
+    seconds: 10
+
 - name: Wait for application port
   wait_for:
     port: "{{ app_port }}"
