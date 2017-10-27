@@ -19,3 +19,4 @@ tomcat_root_conf: "/opt/tomcat/conf/Catalina/localhost"
 tomcat_root_home: "/opt/tomcat/webapps"
 
 zabbix_window: no
+newrelic_deployment: no
