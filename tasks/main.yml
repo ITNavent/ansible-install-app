@@ -11,6 +11,12 @@
     state: present
   when: zabbix_window
 
+- name: Notify deployment to NewRelic
+  command: "java -jar newrelic.jar deployment"
+  args:
+    chdir: "{{ newrelic_path }}"
+  when: newrelic_deployment
+
 - include: "install-{{ type_app_install }}-app.yml"
 
 - name: Wait application restart

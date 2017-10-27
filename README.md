@@ -35,6 +35,10 @@ Parámetros de zabbix:
 - zabbix_server_url: Url del server de zabbix
 - app_port: Puerto al cual esperar para validar que la aplicación esté levantada
 
+Parámetros de newrelic:
+- newrelic_deployment: Envia a NewRelic una notificación de deploy.
+- newrelic_path: Path donde está el archivo newrelic.jar
+
 El rol lo que hace es:
 
 - Instalar el servicio en supervisor
@@ -43,10 +47,9 @@ El rol lo que hace es:
     - shutdown.sh
     - install.sh
     
- ## Tipos de instalación
+## Tipos de instalación
  
- - supervisor: Default
- - tomcat: Si la variable type_app_install es igual a **tomcat** instala una apliación en un tomcat dejando el contexto como Root. 
-
+- supervisor: Default
+- tomcat: Si la variable type_app_install es igual a **tomcat** instala una apliación en un tomcat dejando el contexto como Root. 
 
 
