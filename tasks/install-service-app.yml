@@ -9,7 +9,7 @@
 - name: Ejecuto el script de install.sh
   shell: "sh /home/ubuntu/navent/bin/install.sh {{maven_version}}"
 
-- name: Instalo la aplicación en supervisor
+- name: Instalo la aplicación como servicio
   become: yes
   template:
     src: app-service.j2
