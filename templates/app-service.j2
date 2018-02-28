@@ -20,7 +20,7 @@ DAEMON_ARGS=
 NAME={{ app_name }}
 DESC={{ app_name }}
 
-RUNDIR={{ app_home }}
+RUNDIR=/home/ubuntu/navent/app
 PIDFILE=$RUNDIR/{{ app_name }}.pid
 
 test -x $DAEMON || exit 0
