@@ -51,5 +51,7 @@ El rol lo que hace es:
  
 - supervisor: Default
 - tomcat: Si la variable type_app_install es igual a **tomcat** instala una apliación en un tomcat dejando el contexto como Root. 
-
+- service: Si la variable type_app_install es igual a **service** instala un nuevo servicio con el nombre definido por la variable
+    ```app_name``` que ejecuta los scripts startup.sh y shutdown.sh al iniciar y finalizar el servicio. El servicio se inicia
+    en la etapa de booteo, pero no cuando se ejecuta el rol. 
 
