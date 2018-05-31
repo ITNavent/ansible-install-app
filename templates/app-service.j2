@@ -47,7 +47,7 @@ case "$1" in
                 ulimit -n $ULIMIT || true
         fi
 
-        if start-stop-daemon --start --quiet --oknodo --umask 007 --pidfile $PIDFILE --chuid {{app_user}}:{{app_group}} --exec $DAEMON -- $DAEMON_ARGS
+        if start-stop-daemon --start --quiet --oknodo --umask {{app_service_umask}} --pidfile $PIDFILE --chuid {{app_user}}:{{app_group}} --exec $DAEMON -- $DAEMON_ARGS
         then
                 echo "$NAME."
         else
