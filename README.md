@@ -13,6 +13,7 @@ Para instalar una aplicación que corre vía java -jar hay que definir las sigui
 - jmx_arg: Parámetros para la JVM trabajar con JMX.
 
 - app_user: En caso que se quiera definir el usuario con la cual corre la aplicación (root es default)
+- app_directory: Directorio donde está la app. Supervisor va a correr la app desde ese path
 
 Parámetros de nexus:
 
