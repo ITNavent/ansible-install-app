@@ -55,3 +55,7 @@ El rol lo que hace es:
     ```app_name``` que ejecuta los scripts startup.sh y shutdown.sh al iniciar y finalizar el servicio. El servicio se inicia
     en la etapa de booteo, pero no cuando se ejecuta el rol. 
 
+## Parámetro agregado
+- navent_folder: Se agrega para poder cambiar la carpeta de instalación que por default es 'navent'. Nos sirvió para poder instalar varios jars en una misma instancia para un problema justo donde necesitabamos eso.
+
+

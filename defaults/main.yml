@@ -9,7 +9,7 @@ jvm_arg: ""
 app_arg: ""
 jmx_arg: ""
 
-app_command: "java {{jvm_arg}} {{jmx_arg}} {{newrelic_agent}} -jar /home/ubuntu/navent/app/{{app_name}}.jar {{app_arg}}"
+app_command: "java {{jvm_arg}} {{jmx_arg}} {{newrelic_agent}} -jar /home/ubuntu/{{navent_folder}}/app/{{app_name}}.jar {{app_arg}}"
 app_user: root
 app_group: root
 app_health_check: http://localhost:8080/manage/health

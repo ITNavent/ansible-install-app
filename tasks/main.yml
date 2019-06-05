@@ -29,7 +29,7 @@
   when: zabbix_window
 
 - name: Wait for health endpoint
-  shell: "bash /home/ubuntu/navent/bin/checkWebServerUp.sh"
+  shell: "bash /home/ubuntu/{{navent_folder}}/bin/checkWebServerUp.sh"
   when: zabbix_window
 
 - name: Delete zabbix maintenance window

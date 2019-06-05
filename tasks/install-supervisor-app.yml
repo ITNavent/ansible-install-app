@@ -2,12 +2,12 @@
 - name: Instalo el script de install.sh
   template:
     src: install-nexus.sh.j2
-    dest: "/home/ubuntu/navent/bin/install.sh"
+    dest: "/home/ubuntu/{{navent_folder}}/bin/install.sh"
     mode: 0777
     owner: ubuntu
 
 - name: Ejecuto el script de install.sh
-  shell: "sh /home/ubuntu/navent/bin/install.sh {{maven_version}}"
+  shell: "sh /home/ubuntu/{{navent_folder}}/bin/install.sh {{maven_version}}"
 
 - name: Instalo la aplicación en supervisor
   become: yes
@@ -18,21 +18,21 @@
 - name: Instalo el script startup.sh
   template:
     src: startup-supervisor.sh.j2
-    dest: "/home/ubuntu/navent/bin/startup.sh"
+    dest: "/home/ubuntu/{{navent_folder}}/bin/startup.sh"
     mode: 0777
     owner: ubuntu
 
 - name: Copio el script de check web up
   template:
      src: checkWebServerUp.sh.j2
-     dest: /home/ubuntu/navent/bin/checkWebServerUp.sh
+     dest: /home/ubuntu/{{navent_folder}}/bin/checkWebServerUp.sh
      mode: 0777
      owner: ubuntu
 
 - name: Instalo el script shutdown.sh 
   template:
     src: shutdown-supervisor.sh.j2
-    dest: "/home/ubuntu/navent/bin/shutdown.sh"
+    dest: "/home/ubuntu/{{navent_folder}}/bin/shutdown.sh"
     mode: 0777
     owner: ubuntu
 

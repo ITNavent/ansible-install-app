@@ -14,13 +14,13 @@
 # {{ ansible_managed }}
 #
 
-PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/home/ubuntu/navent/bin
-DAEMON=/home/ubuntu/navent/bin/startup.sh
+PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/home/ubuntu/{{navent_folder}}/bin
+DAEMON=/home/ubuntu/{{navent_folder}}/bin/startup.sh
 DAEMON_ARGS=
 NAME={{ app_name }}
 DESC={{ app_name }}
 
-RUNDIR=/home/ubuntu/navent/app
+RUNDIR=/home/ubuntu/{{navent_folder}}/app
 PIDFILE=$RUNDIR/{{ app_name }}.pid
 
 test -x $DAEMON || exit 0
@@ -57,7 +57,7 @@ case "$1" in
   stop)
         echo -n "Stopping $DESC: "
 
-        su {{app_user}} -s /bin/sh -c "/home/ubuntu/navent/bin/shutdown.sh"
+        su {{app_user}} -s /bin/sh -c "/home/ubuntu/{{navent_folder}}/bin/shutdown.sh"
 
         if start-stop-daemon --stop --retry forever/TERM/1 --quiet --oknodo --pidfile $PIDFILE --exec $DAEMON
         then
